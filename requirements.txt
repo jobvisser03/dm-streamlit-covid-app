@@ -1,6 +1,0 @@
-streamlit
-pandas
-sqlalchemy
-plotly
-python-dotenv
-psycopg2

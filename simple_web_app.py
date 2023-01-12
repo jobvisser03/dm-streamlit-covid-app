@@ -23,6 +23,8 @@ st.title("COVID Review Insights")
 st.markdown("This app explores Deliverable review data and COVID infection data.")
 
 
+# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
+@st.experimental_memo(ttl=600)
 @st.cache
 def load_covid_data(connection_string):
     """Get data from database"""
@@ -40,7 +42,8 @@ def load_covid_data(connection_string):
         con=engine,
     )
 
-
+# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
+@st.experimental_memo(ttl=600)
 @st.cache
 def load_review_data(connection_string):
     engine = create_engine(connection_string)
